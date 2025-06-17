@@ -1,0 +1,9 @@
+[class*=ymaps][class*=-ground-pane] {
+    filter: grayscale(1) hue-rotate(-180deg);
+    -ms-filter: grayscale(1) hue-rotate(-180deg);
+    -webkit-filter: grayscale(1) hue-rotate(-180deg);
+    -moz-filter: grayscale(1) hue-rotate(-180deg);
+    -o-filter: grayscale(1) hue-rotate(-180deg);
+    filter: invert(1) hue-rotate(-180deg);
+        
+}
