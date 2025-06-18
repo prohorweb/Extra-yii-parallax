@@ -15,7 +15,7 @@ $model4 = common\models\Club::find()->where(['id' => 1])->one(Yii::$app->db4);
 
 $url = $_SERVER['HTTP_HOST'];
 
-$this->registerJsFile('@web/js/scroll-title.js', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAsset::class]]);
    
 
 ?>
@@ -37,8 +37,62 @@ $this->registerJsFile('@web/js/scroll-title.js', ['depends' => [\frontend\assets
         </div>
     </div>
 </header>
+
+ <section class="clubs_container" id="clubs">
+        <div class="carousel_clubs-container">
+            <div class="carousel_clubs">
+                <div class="carousel_clubs-item">
+                    <a class="card" href="/"><img
+                            src="https://extrasport.ru/img/clubs/welcom-block-img-2.jpg" alt="...">
+                        <div class="card-body p-0">
+                            <div class="d-flex">
+                                <div class="w-100 py-2">
+                                    <h5 class="card-title">ТРЦ «Питер»</h5>
+                                    <div class="card-text">Санкт-Петербург, ул. Типанова, 21</div>
+                                </div>
+                                <div class="btn-arrow d-flex align-items-center"><i
+                                        class="fa-sharp fa-solid fa-arrow-right"> </i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel_clubs-item">
+                    <a class="card" href="/"><img
+                            src="https://extrasport.ru/img/clubs/welcom-block-img-4.jpg" alt="...">
+                        <div class="card-body p-0">
+                            <div class="d-flex">
+                                <div class="w-100 py-2">
+                                    <h5 class="card-title">«Матроса железняка»</h5>
+                                    <div class="card-text">Санкт-Петербург, ул. Матроса Железняка, 57А</div>
+                                </div>
+                                <div class="btn-arrow d-flex align-items-center"><i
+                                        class="fa-sharp fa-solid fa-arrow-right"> </i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="carousel_clubs-item">
+                    <a class="card" href="/">
+                        <img src="https://extrasport.ru/img/clubs/welcom-block-img-5.jpg" alt="...">
+                        <div class="card-body p-0">
+                            <div class="d-flex">
+                                <div class="w-100 py-2">
+                                    <h5 class="card-title">De-vision</h5>
+                                    <div class="card-text">Санкт-Петербург, пр. Культуры, 1</div>
+                                </div>
+                                <div class="btn-arrow d-flex align-items-center"><i
+                                        class="fa-sharp fa-solid fa-arrow-right"> </i></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+        </div>
+    </section>
  <!-- Clubs-->
- <section class="page-section" id="actions">
+ <!-- <section class="page-section" id="actions">
     <div class="container">
       <div class="row text-center">
         <div class="col-lg-4 col-md-6"> 
@@ -108,7 +162,7 @@ $this->registerJsFile('@web/js/scroll-title.js', ['depends' => [\frontend\assets
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!--Map-->
   <section class="map-section welcome">
@@ -248,5 +302,7 @@ ymaps.ready(init);
             myPlacemark4.events.add('click', function (e) { window.location.href = 'https://matros.'  + host });
             myPlacemark5.events.add('click', function (e) { window.location.href = 'https://de-vision.ru' });
     }
+
+    
 JS;
 $this->registerJs($js);

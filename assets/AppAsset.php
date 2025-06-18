@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
     public $js = [
         // '/js/app.js',
         'js/main.js',
+        'js/sections.js',
         'js/cookieconsent.min.js',
         // 'js/jquery.carouFredSel-6.2.1-packed.js',
         //'js/jquery.mousewheel.min.js',

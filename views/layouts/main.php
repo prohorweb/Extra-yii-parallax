@@ -48,10 +48,10 @@ AppAsset::register($this);
     };
     </script>
     <?php
-    $sub = explode('.', $_SERVER['HTTP_HOST'])[0];
-    if ($sub == true) {
-    $this->registerJsFile('@web/js/nav.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-    }
+    //     $sub = explode('.', $_SERVER['HTTP_HOST'])[0];
+    // if ($sub == true) {
+    // $this->registerJsFile('@web/js/scroll-title.js', ['depends' => [\frontend\assets\AppAsset::class]]);
+    // }
 ?>
 
     <?= Html::csrfMetaTags() ?>
