@@ -3,6 +3,15 @@ header.main {
     position: relative;
 }
 
+.carousel-item {
+    height: 100vh;
+}
+@media (min-width: 992px) {
+    .carousel-container {
+        margin-top: -125px;
+    }
+}
+
 /* styles.css */
 .clubs_container {
     display: flex;
@@ -50,6 +59,7 @@ header.main {
     .carousel_clubs-item {
         width: 80%;
     }
+
     .clubs_container {
         height: auto;
     }
@@ -102,4 +112,11 @@ header.main {
     -o-filter: grayscale(1) hue-rotate(-180deg);
     filter: invert(1) hue-rotate(-180deg);
 
+}
+
+.present-video,
+.cc_banner-wrapper,
+.grecaptcha-badge,
+.chat-24 {
+    display: none !important;
 }

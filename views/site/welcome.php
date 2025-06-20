@@ -13,8 +13,11 @@ $model2 = common\models\Club::find()->where(['id' => 1])->one(Yii::$app->db2);
 $model3 = common\models\Club::find()->where(['id' => 1])->one(Yii::$app->db3);
 $model4 = common\models\Club::find()->where(['id' => 1])->one(Yii::$app->db4);
 
-$url = $_SERVER['HTTP_HOST'];
+$http = (Yii::$app->request->isSecureConnection ? 'https' : 'http'). '://' ;
+$host =  $_SERVER['HTTP_HOST'];
+$url = $http.$host;
 
+$this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAsset::class]]);
 $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAsset::class]]);
    
 
@@ -42,8 +45,8 @@ $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAss
         <div class="carousel_clubs-container">
             <div class="carousel_clubs">
                 <div class="carousel_clubs-item">
-                    <a class="card" href="/"><img
-                            src="https://extrasport.ru/img/clubs/welcom-block-img-2.jpg" alt="...">
+                    <a class="card" href="<?= $http."piter.".$host?>"><img
+                            src="<?= $url ?>/img/clubs/welcom-block-img-2.jpg" alt="...">
                         <div class="card-body p-0">
                             <div class="d-flex">
                                 <div class="w-100 py-2">
@@ -57,8 +60,8 @@ $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAss
                     </a>
                 </div>
                 <div class="carousel_clubs-item">
-                    <a class="card" href="/"><img
-                            src="https://extrasport.ru/img/clubs/welcom-block-img-4.jpg" alt="...">
+                    <a class="card" href="<?= $http."matros.".$host?>"><img
+                            src="<?= $url ?>/img/clubs/welcom-block-img-4.jpg" alt="...">
                         <div class="card-body p-0">
                             <div class="d-flex">
                                 <div class="w-100 py-2">
@@ -72,8 +75,8 @@ $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAss
                     </a>
                 </div>
                 <div class="carousel_clubs-item">
-                    <a class="card" href="/">
-                        <img src="https://extrasport.ru/img/clubs/welcom-block-img-5.jpg" alt="...">
+                    <a class="card" href="https://de-vision.ru" target="_blank">
+                        <img src="<?= $url ?>/img/clubs/welcom-block-img-5.jpg" alt="...">
                         <div class="card-body p-0">
                             <div class="d-flex">
                                 <div class="w-100 py-2">
