@@ -51,7 +51,7 @@ AppAsset::register($this);
         $sub = explode('.', $_SERVER['HTTP_HOST'])[0];
     if ($sub == true) {
     $this->registerJsFile('@web/js/nav.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-    $this->registerJsFile('@web/js/sections.js', ['depends' => [\frontend\assets\AppAsset::class]]);
+    // $this->registerJsFile('@web/js/sections.js', ['depends' => [\frontend\assets\AppAsset::class]]);
     }
 ?>
 

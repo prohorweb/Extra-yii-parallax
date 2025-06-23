@@ -3,7 +3,23 @@ header.main {
     position: relative;
 }
 
-.carousel-item {
+.carousel_scroll {
+    display: flex;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
+  }
+  .slide_scroll {
+    margin-right: auto;
+    flex: none;
+    width: 100vw;
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+  }
+
+.carousel-item .title {
     height: 100vh;
 }
 @media (min-width: 992px) {
@@ -12,6 +28,29 @@ header.main {
     }
 }
 
+/* Styling for the indicator */
+.indicator-container {
+  position: absolute; /* Absolute within the carousel */
+  bottom: 10px;    /* Adjust the space from the bottom */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.indicator-dot {
+  width: 12px;   /* Size of the indicator dots */
+  height: 12px;
+  border-radius: 50%;
+  background-color: #bbb;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth transition on active state */
+}
+
+.indicator-dot.active {
+  background-color: #333; /* Active dot color */
+}
 /* styles.css */
 .clubs_container {
     display: flex;

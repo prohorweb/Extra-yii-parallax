@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         // '/js/app.js',
+        'js/sections.js',
         'js/main.js',
         'js/cookieconsent.min.js',
         // 'js/jquery.carouFredSel-6.2.1-packed.js',

@@ -30,15 +30,56 @@ if ($sub == 'piter') {
     $active = 'active';
 }
 ?>
+<section class="carousel_scroll carousel-container " id="carousel_scroll">
+    <div class="carousel-item slide_scroll">
+        <div class="masthead-heading text-uppercase d-flex flex-column align-items-center justify-content-center title">
+            Сеть фитнес клубов на результат!
+            <div class="masthead-subheading white">Ваш клуб - <?= $this->params['club']->title ?></div>
+        </div>
+        <video muted loop autoplay class="w-100">
+            <source src="video/bg_moution.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+            <source src="video/bg_moution.webm" type='video/webm; codecs="vp8, vorbis"'>
+        </video>
+    </div>
+    <?php $counter = 1; foreach($banners_club as $banner) { ?>
 
-<div id="carouselSection" class="carousel-container">
-    <div id="carouselSlider" class="carousel slide"  data-ride="carousel" data-interval="false">
+    <div class="carousel-item slide_scroll">
+
+        <div class="masthead-heading text-uppercase d-flex flex-column align-items-center justify-content-center title">
+            <?= $banner->title2 ?>
+            <div class="masthead-subheading white"><?= $banner->intro ?></div>
+            <a class="btn btn-primary btn-xl text-uppercase bg-black" href="<?= $banner->url ?>">Узнать больше
+                ></a>
+        </div>
+
+        <?php if ($banner->video) { ?>
+        <video src="/uploads/video/<?= $banner->video ?>" autoplay muted loop></video>
+        <?php } ?>
+
+        <?php if(Yii::$app->devicedetect->isMobile() || Yii::$app->devicedetect->isTablet()) { ?>
+        <img class="d-block w-100"
+            src="<?= $banner->img1440 ? '/uploads/image/banners/1440/'.$banner->img1440 : '//placehold.it/1904x1080' ?>"
+            alt="">
+        <?php } else { ?>
+        <img class="d-block w-100"
+            src="<?= $banner->img1200 ? '/uploads/image/banners/1200/'.$banner->img1200 : '//placehold.it/1904x698' ?>"
+            alt="">
+        <?php } ?>
+        <div class="overlay " style="height: 100vh"></div>
+
+    </div>
+
+    <?php   $counter++; } ?>
+</section>
+
+<!-- <div id="carouselSection" class="carousel-container">
+    <div id="myCarousel" class="carousel slide" data-bs-ride="false">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div
                     class="masthead-heading text-uppercase d-flex flex-column align-items-center justify-content-center title">
                     Сеть фитнес клубов на результат!
-                    <div class="masthead-subheading white">Ваш клуб -  <?= $this->params['club']->title ?></div>
+                    <div class="masthead-subheading white">Ваш клуб - <?= $this->params['club']->title ?></div>
                 </div>
                 <video muted loop autoplay class="w-100">
                     <source src="video/bg_moution.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
@@ -46,7 +87,7 @@ if ($sub == 'piter') {
                 </video>
             </div>
             <?php $counter = 1; foreach($banners_club as $banner) { ?>
-            <div class="carousel-item" >
+            <div class="carousel-item">
 
                 <div
                     class="masthead-heading text-uppercase d-flex flex-column align-items-center justify-content-center title">
@@ -76,117 +117,113 @@ if ($sub == 'piter') {
             <?php   $counter++; } ?>
         </div>
     </div>
-</div>
-   <section id="about">
-        <div class="carousel about carousel-fade" id="carouselExampleFade" data-bs-ride="carousel"
-            data-bs-pause="false">
-            <?php if ($sub == 'piter') { ?>
-            <a class="carousel-item active" data-bs-interval=4000 href="/services/bassejn/">
-                <div class="d-flex align-items-center justify-content-center title">БАССЕЙН</div>
-                <video src="/video/aqua.mp4" autoplay muted loop> </video>
-                <div class="overlay "></div>
-            </a>
-            <?php } ?>
-            <a class="carousel-item  <?= $active ?>" data-bs-interval=4000 href="/services/personal_training/">
-                <div class="d-flex align-items-center justify-content-center title">ПЕРСОНАЛЬНЫЙ ТРЕНИНГ</div>
-                <video src="/video/personal.mp4" muted loop autoplay></video>
-                <div class="overlay "></div>
-            </a>
-            <a class="carousel-item" data-bs-interval=4000 href="/services/programs/">
-                <div class="d-flex align-items-center justify-content-center title">ГРУППОВЫЕ ПРОГРАММЫ</div>
-                <video src="/video/group.mp4" muted loop autoplay></video>
-                <div class="overlay "></div>
-            </a>
-            <a class="carousel-item" data-bs-interval=4000 href="/services/detskij-klub/">
-                <div class="d-flex align-items-center justify-content-center title">ДЕТСКИЙ КЛУБ</div>
-                <video src="/video/children.mp4" muted loop autoplay></video>
-                <div class="overlay "></div>
-            </a>
-            <a class="carousel-item" data-bs-interval=4000 href="/services/boevye-iskusstva/">
-                <div class="d-flex align-items-center justify-content-center title">БОЕВЫЕ ИСКУССТВА</div>
-                <video src="/video/fight.mp4" muted loop autoplay></video>
-                <div class="overlay "></div>
-            </a>
+</div> -->
+
+
+
+<!-- About-->
+<section id="next_section">
+    <div class="carousel about carousel-fade" id="carouselExampleFade" data-bs-ride="carousel" data-bs-pause="false">
+        <?php if ($sub == 'piter') { ?>
+        <a class="carousel-item active" data-bs-interval=4000 href="/services/bassejn/">
+            <div class="d-flex align-items-center justify-content-center title">БАССЕЙН</div>
+            <video src="/video/aqua.mp4" autoplay muted loop> </video>
+            <div class="overlay "></div>
+        </a>
+        <?php } ?>
+        <a class="carousel-item  <?= $active ?>" data-bs-interval=4000 href="/services/personal_training/">
+            <div class="d-flex align-items-center justify-content-center title">ПЕРСОНАЛЬНЫЙ ТРЕНИНГ</div>
+            <video src="/video/personal.mp4" muted loop autoplay></video>
+            <div class="overlay "></div>
+        </a>
+        <a class="carousel-item" data-bs-interval=4000 href="/services/programs/">
+            <div class="d-flex align-items-center justify-content-center title">ГРУППОВЫЕ ПРОГРАММЫ</div>
+            <video src="/video/group.mp4" muted loop autoplay></video>
+            <div class="overlay "></div>
+        </a>
+        <a class="carousel-item" data-bs-interval=4000 href="/services/detskij-klub/">
+            <div class="d-flex align-items-center justify-content-center title">ДЕТСКИЙ КЛУБ</div>
+            <video src="/video/children.mp4" muted loop autoplay></video>
+            <div class="overlay "></div>
+        </a>
+        <a class="carousel-item" data-bs-interval=4000 href="/services/boevye-iskusstva/">
+            <div class="d-flex align-items-center justify-content-center title">БОЕВЫЕ ИСКУССТВА</div>
+            <video src="/video/fight.mp4" muted loop autoplay></video>
+            <div class="overlay "></div>
+        </a>
+    </div>
+</section>
+
+
+<!-- Actions-->
+<section class="page-section" id="actions">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Акции клуба <?= $this->params['club']->title ?></h2>
         </div>
-    </section>
-    <!-- <header class="masthead">
-
-        <div class="carousel actions carousel-fade" id="carouselActionsFade" data-bs-ride="carousel" touch="true">
-
-          
-        </div>
-    </section> -->
-
-
-    <!-- Actions-->
-    <section class="page-section" id="actions">
-        <div class="container">
-            <div class="text-center">
-                <h2 class="section-heading text-uppercase">Акции клуба <?= $this->params['club']->title ?></h2>
-            </div>
-            <div class="row text-center">
-                <?php $i = 0; foreach ($shares as $key => $share) { ?>
-                <div class="col-lg-4 col-md-6">
-                    <a class="card <?php if ($i == 2) { echo"d-lg-block d-md-none"; } ?>"
-                        href="<?= Url::to(['/card/shares/' . $share->alias]) ?>">
-                        <?php if (!empty($share->title2)) { ?>
-                        <div class="date-action"><?= $share->title2 ?></div>
-                        <?php } ?>
-                        <img class="card-img-top"
-                            src="<?= $share->img ? '/uploads/image/share/' . $share->img : '//placehold.it/876x680' ?>"
-                            alt="...">
-                        <div class="card-body p-0">
-                            <div class="d-flex">
-                                <div class="card-body_wrapper">
-                                    <h5 class="card-title"><?= $share->title ?></h5>
-                                    <div class="card-text"><?= $share->intro ?></div>
-                                </div>
-                                <div class="btn-arrow d-flex align-items-center">
-                                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
-                                </div>
+        <div class="row text-center">
+            <?php $i = 0; foreach ($shares as $key => $share) { ?>
+            <div class="col-lg-4 col-md-6">
+                <a class="card <?php if ($i == 2) { echo"d-lg-block d-md-none"; } ?>"
+                    href="<?= Url::to(['/card/shares/' . $share->alias]) ?>">
+                    <?php if (!empty($share->title2)) { ?>
+                    <div class="date-action"><?= $share->title2 ?></div>
+                    <?php } ?>
+                    <img class="card-img-top"
+                        src="<?= $share->img ? '/uploads/image/share/' . $share->img : '//placehold.it/876x680' ?>"
+                        alt="...">
+                    <div class="card-body p-0">
+                        <div class="d-flex">
+                            <div class="card-body_wrapper">
+                                <h5 class="card-title"><?= $share->title ?></h5>
+                                <div class="card-text"><?= $share->intro ?></div>
+                            </div>
+                            <div class="btn-arrow d-flex align-items-center">
+                                <i class="fa-sharp fa-solid fa-arrow-right"></i>
                             </div>
                         </div>
-                    </a>
-                </div>
-                <?php $i++; } ?>
+                    </div>
+                </a>
             </div>
-            <div class="d-flex justify-content-center">
-                <a class="btn btn-primary btn-xl" href="<?= Url::to(['/card/shares/']) ?>">Все акции</a>
+            <?php $i++; } ?>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-primary btn-xl" href="<?= Url::to(['/card/shares/']) ?>">Все акции</a>
+        </div>
+    </div>
+</section>
+
+<!-- Contact-->
+<?= $this->render('/club/_subscribe') ?>
+
+<!-- Map-->
+<section class="map-section" id="contacts">
+    <div class="container">
+        <div class="d-flex justify-content-start">
+            <div class="map-section__contacts">
+                <h2 class="map-section__title section-heading">Контакты</h2>
+                <ul class="map-section__list">
+                    <li class="map-section__phone"><i class="fa-regular fa-mobile fs-4"></i><a class="fs-4"
+                            href="tel:<?= $this->params['club']->tel ?>"><?= $this->params['club']->tel ?></a></li>
+                    <li class="map-section__mail"><i class="fa-regular fa-envelope"></i><a
+                            href="mailto:<?= $this->params['club']->email ?>"><?= $this->params['club']->email ?></a>
+                    </li>
+                    <li class="map-section__adres"> <i
+                            class="fa-regular fa-location-dot"></i><?= $this->params['club']->address ?></li>
+                    <li class="map-section__metro"> <i
+                            class="fa-regular fa-train-subway"></i><?= implode(", ", ArrayHelper::getColumn($metros, 'name')); ?>
+                    </li>
+                    <li class="map-section__time"><i class="fa-regular fa-timer"></i>Время работы<br> пн–пт:
+                        <?= $this->params['club']->start_work ?><br> сб–вс:
+                        <?= $this->params['club']->start_work_weekend ?></li>
+                    <li class="map-section__prodag"><i class="fa-regular fa-user-tie-hair"></i>Отдел продаж:<br>
+                        пн-вс: 10:00 до 22:00</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Contact-->
-    <?= $this->render('/club/_subscribe') ?>
-
-    <!-- Map-->
-    <section class="map-section" id="contacts">
-        <div class="container">
-            <div class="d-flex justify-content-start">
-                <div class="map-section__contacts">
-                    <h2 class="map-section__title section-heading">Контакты</h2>
-                    <ul class="map-section__list">
-                        <li class="map-section__phone"><i class="fa-regular fa-mobile fs-4"></i><a class="fs-4"
-                                href="tel:<?= $this->params['club']->tel ?>"><?= $this->params['club']->tel ?></a></li>
-                        <li class="map-section__mail"><i class="fa-regular fa-envelope"></i><a
-                                href="mailto:<?= $this->params['club']->email ?>"><?= $this->params['club']->email ?></a>
-                        </li>
-                        <li class="map-section__adres"> <i
-                                class="fa-regular fa-location-dot"></i><?= $this->params['club']->address ?></li>
-                        <li class="map-section__metro"> <i
-                                class="fa-regular fa-train-subway"></i><?= implode(", ", ArrayHelper::getColumn($metros, 'name')); ?>
-                        </li>
-                        <li class="map-section__time"><i class="fa-regular fa-timer"></i>Время работы<br> пн–пт:
-                            <?= $this->params['club']->start_work ?><br> сб–вс:
-                            <?= $this->params['club']->start_work_weekend ?></li>
-                        <li class="map-section__prodag"><i class="fa-regular fa-user-tie-hair"></i>Отдел продаж:<br>
-                            пн-вс: 10:00 до 22:00</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="map-section__map" id="map"> </div>
-    </section>
+    </div>
+    <div class="map-section__map" id="map"> </div>
+</section>
 
 <?php
 $this->registerJsFile('https://api-maps.yandex.ru/2.1/?lang=ru_RU');
