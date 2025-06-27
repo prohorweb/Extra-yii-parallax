@@ -8,7 +8,7 @@ window.addEventListener('scroll', function() {
     
 });
 
-let currentIndex = 0;
+// let currentIndex = 1;
 const carousel = document.querySelector(".carousel_clubs");
 
 if (carousel) {
@@ -66,7 +66,3 @@ if (carousel) {
     });
 }
 
-document.querySelector("a[href='#clubs']").addEventListener("click", (event) => {
-    event.preventDefault();
-    document.querySelector("#clubs").scrollIntoView({ behavior: "smooth" });
-});

@@ -18,7 +18,7 @@ $host =  $_SERVER['HTTP_HOST'];
 $url = $http.$host;
 
 $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-$this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAsset::class]]);
+$this->registerCssFile('@web/css/clubs.css', ['depends' => [\frontend\assets\AppAsset::class]]);
    
 
 ?>
@@ -94,78 +94,6 @@ $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAss
             <button class="next">❯</button>
         </div>
     </section>
- <!-- Clubs-->
- <!-- <section class="page-section" id="actions">
-    <div class="container">
-      <div class="row text-center">
-        <div class="col-lg-4 col-md-6"> 
-          <a class="card" href="https://piter.<?=$url?>"><img class="card-img-top" src="/img/clubs/welcom-block-img-2.jpg" alt="...">
-            <div class="card-body p-0">
-              <div class="d-flex">
-                <div class="w-100 py-2">
-                  <h5 class="card-title">ТРЦ «Питер»</h5>
-                  <div class="card-text">Санкт-Петербург, ул. Типанова, 21</div>
-                </div>
-                <div class="btn-arrow d-flex align-items-center"><i class="fa-sharp fa-solid fa-arrow-right">  </i></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-6">
-          <a class="card" href="https://iyun.<?=$url?>"><img class="card-img-top" src="/img/clubs/welcom-block-img-1.jpg" alt="...">
-            <div class="card-body p-0">
-              <div class="d-flex">
-                <div class="w-100 py-2">
-                  <h5 class="card-title">ТРЦ «Июнь»</h5>
-                  <div class="card-text">Санкт-Петербург, Индустриальный пр., 24</div>
-                </div>
-                <div class="btn-arrow d-flex align-items-center"><i class="fa-sharp fa-solid fa-arrow-right"> </i></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-md-6"> 
-          <a class="card" href="https://polyus.<?=$url?>"><img class="card-img-top" src="/img/clubs/welcom-block-img-3.jpg" alt="...">
-            <div class="card-body p-0">
-              <div class="d-flex">
-                <div class="w-100 py-2">
-                  <h5 class="card-title">ТРЦ «Южный полюс»</h5>
-                  <div class="card-text">Санкт-Петербург, ул. Пражская, 48/50</div>
-                </div>
-                <div class="btn-arrow d-flex align-items-center"><i class="fa-sharp fa-solid fa-arrow-right">  </i></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-6 col-md-6"> 
-          <a class="card" href="https://matros.<?=$url?>"><img class="card-img-top" src="/img/clubs/welcom-block-img-4.jpg" alt="...">
-            <div class="card-body p-0">
-              <div class="d-flex">
-                <div class="w-100 py-2">
-                  <h5 class="card-title">«Матроса железняка»</h5>
-                  <div class="card-text">Санкт-Петербург, ул. Матроса Железняка, 57А</div>
-                </div>
-                <div class="btn-arrow d-flex align-items-center"><i class="fa-sharp fa-solid fa-arrow-right">  </i></div>
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-6 col-md-12"> 
-          <a class="card" href="https://de-vision.ru"><img class="card-img-top" src="/img/clubs/welcom-block-img-5.jpg" alt="...">
-            <div class="card-body p-0">
-              <div class="d-flex">
-                <div class="w-100 py-2">
-                  <h5 class="card-title">De-vision</h5>
-                  <div class="card-text">Санкт-Петербург, пр. Культуры, 1</div>
-                </div>
-                <div class="btn-arrow d-flex align-items-center"><i class="fa-sharp fa-solid fa-arrow-right">  </i></div>
-              </div>
-            </div>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section> -->
 
   <!--Map-->
   <section class="map-section welcome">
@@ -222,7 +150,9 @@ $this->registerJsFile('@web/js/front.js', ['depends' => [\frontend\assets\AppAss
       </div>
     </div>
   </footer>
-  
+  <script>
+    let currentIndex = 0;
+  </script>
 <?php
 $this->registerJsFile('https://api-maps.yandex.ru/2.1/?lang=ru_RU');
 $js = <<< JS

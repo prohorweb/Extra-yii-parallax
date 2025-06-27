@@ -47,13 +47,6 @@ AppAsset::register($this);
         theme: '/css/light-bottom.css'
     };
     </script>
-    <?php
-        $sub = explode('.', $_SERVER['HTTP_HOST'])[0];
-    if ($sub == true) {
-    $this->registerJsFile('@web/js/nav.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-    // $this->registerJsFile('@web/js/sections.js', ['depends' => [\frontend\assets\AppAsset::class]]);
-    }
-?>
 
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
