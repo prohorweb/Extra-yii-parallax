@@ -1,8 +1,38 @@
+#mainNav.navbar-shrink, .dropdown-menu.navbar-shrink {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  background-color: #00000095;
+}
+
 @media (min-width: 992px) {
     header.masthead {
       margin-top: -125px;
     }
   }
+
+.carousel-item img {
+    object-position: right center;
+}
+.carousel-item .title{
+  padding-right: 1.2in;
+  padding-bottom: 1in;
+}
+.more {
+  animation: pulse 1.5s infinite;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+}
+.carousel-control-prev, .carousel-control-next  {
+  width: 10%;
+}
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(204, 81, 0, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 7px 25px rgba(204, 81, 0, 0);
+  }
+}
 
 .card {
     background-color: #00000095;
@@ -13,7 +43,6 @@
 }
 .present-video,
 .cc_banner-wrapper,
-.grecaptcha-badge,
-.chat-24 {
+.grecaptcha-badge {
     display: none !important;
 }

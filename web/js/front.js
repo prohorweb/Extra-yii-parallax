@@ -66,3 +66,16 @@ if (carousel) {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+  const btn = document.querySelector('a[href="#clubs"]');
+  if (btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const target = document.getElementById('clubs');
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  }
+});
+

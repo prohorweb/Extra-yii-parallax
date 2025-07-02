@@ -36,7 +36,7 @@ $this->registerCssFile('@web/css/clubs.css', ['depends' => [\frontend\assets\App
                 <div class="col-md-6"><img class="w-100" src="/img/logo.svg" alt="extrasport logo"></div>
             </div>
             <div class="masthead-heading text-uppercase">Сеть фитнес клубов на результат!</div>
-            <a class="btn btn-primary btn-xl text-uppercase bg-black" href="#actions">Выберите клуб</a>
+            <a class="btn btn-primary btn-xl text-uppercase bg-black" href="#clubs">Выберите клуб</a>
         </div>
     </div>
 </header>

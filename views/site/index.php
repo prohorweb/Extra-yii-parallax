@@ -35,21 +35,21 @@ if ($sub == 'piter') {
     $active = 'active';
 }
 ?>
- 
 
-    <!-- Parallax Section -->
-    <div class="parallax-container" id="parallaxSection">
-        <!-- Foreground Content -->
-        <!-- <div class="parallax-content">
+
+<!-- Parallax Section -->
+<div class="parallax-container" id="parallaxSection">
+    <!-- Foreground Content -->
+    <!-- <div class="parallax-content">
             <h1>Welcome to Our Website</h1>
             <p>Enjoy the parallax effect on the images as you scroll down!</p>
         </div> -->
 
-        <!-- Foreground Image -->
-        <!-- <img src="https://picsum.photos/1200/800?random" alt="Parallax Image" class="parallax-image" id="parallaxImage"> -->
-    </div>
-   
-<header class="masthead" >
+    <!-- Foreground Image -->
+    <!-- <img src="https://picsum.photos/1200/800?random" alt="Parallax Image" class="parallax-image" id="parallaxImage"> -->
+</div>
+
+<header class="masthead">
 
     <div class="carousel actions carousel-fade" id="carouselActionsFade" data-bs-ride="carousel" touch="true">
 
@@ -57,7 +57,7 @@ if ($sub == 'piter') {
         // Carousel items:
         $counter = 1; ?>
 
-        <div class="carousel-item active" data-bs-interval=40000>
+        <div class="carousel-item active" data-bs-interval=4000>
             <div
                 class="masthead-heading text-uppercase d-flex flex-column align-items-center justify-content-center title">
                 Сеть фитнес клубов на результат!
@@ -68,8 +68,26 @@ if ($sub == 'piter') {
                 <source src="video/bg_moution.webm" type='video/webm; codecs="vp8, vorbis"'>
             </video>
         </div>
+        <div class="carousel-item" data-bs-interval=400000>
+            <div class="masthead-heading text-uppercase d-flex flex-column align-items-end justify-content-end title">
+                <a class="btn btn-primary btn-xl text-uppercase bg-black more" href="#">Узнать больше  >>></a>
+            </div>
+            <img src="img/slide-1.jpeg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item" data-bs-interval=4000>
+            <div class="masthead-heading text-uppercase d-flex flex-column align-items-end justify-content-end title">
+                <a class="btn btn-primary btn-xl text-uppercase bg-black more" href="#">Узнать больше  >>></a>
+            </div>
+            <img src="img/slide-2.jpeg" class="d-block w-100" alt="Slide 1">
+        </div>
+        <div class="carousel-item" data-bs-interval=4000>
+            <div class="masthead-heading text-uppercase d-flex flex-column align-items-end justify-content-end title">
+                <a class="btn btn-primary btn-xl text-uppercase bg-black more" href="#">Узнать больше  >>></a>
+            </div>
+            <img src="img/slide-3.jpeg" class="d-block w-100" alt="Slide 1">
+        </div>
 
-        <?php foreach($banners_club as $banner) { ?>
+        <!-- <?php foreach($banners_club as $banner) { ?>
         <div class="carousel-item slide" data-bs-interval=40000 >
 
             <div
@@ -96,16 +114,18 @@ if ($sub == 'piter') {
 
         </div>
 
-        <?php   $counter++; } ?>
+        <?php   $counter++; } ?> -->
 
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="0" class="active"
-                aria-current="true"></button>
-            <?php   $counter = 1;
+            <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="0" class="active"> </button>
+            <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="3" s></button>
+            <!-- <?php   $counter = 1;
                 foreach($banners_club as $banner){?>
 
             <button type="button" data-bs-target="#carouselActionsFade" data-bs-slide-to="<?= $counter ?>"></button>
-            <?php $counter++; } ?>
+            <?php $counter++; } ?> -->
         </div>
 
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselActionsFade" data-bs-slide="prev">
@@ -123,15 +143,15 @@ if ($sub == 'piter') {
 
 <!-- About-->
 <section id="about" style="position: relative; height: 100vh;">
-     <video src="video/service.mp4" style="height: 100vh !important; width: 100%;
+    <video src="video/service.mp4" style="height: 100vh !important; width: 100%;
             object-fit: cover;
             object-position: center center;" autoplay="" muted="" loop=""> </video>
 </section>
 
 
 <!-- Actions-->
-<section class="page-section" id="actions" 
-style="position: relative; 
+<section class="page-section" id="actions" style="position: relative; 
+height: 100vh;
 background-color: #00000095;
 background-blend-mode: overlay;
 background-image: url('/img/actions-bg.jpg'); 
@@ -146,25 +166,28 @@ background-repeat: no-repeat;
         </div>
         <div class="row text-center">
             <?php $i = 0; foreach ($shares as $key => $share) { ?>
-                <div class="col-lg-4 col-md-6">
-                    <a class="card <?php if ($i == 2) { echo"d-lg-block d-md-none"; } ?>" href="<?= Url::to(['/card/shares/' . $share->alias]) ?>">
-                        <?php if (!empty($share->title2)) { ?>
-                            <div class="date-action"><?= $share->title2 ?></div>
-                        <?php } ?>
-                        <img class="card-img-top" src="<?= $share->img ? '/uploads/image/share/' . $share->img : '//placehold.it/876x680' ?>" alt="...">
-                        <!-- <div class="card-body p-0">
-                            <div class="d-flex">
-                                <div class="card-body_wrapper">
-                                    <h5 class="card-title"><?= $share->title ?></h5>
-                                    <div class="card-text"><?= $share->intro ?></div>
-                                </div>
-                                <div class="btn-arrow d-flex align-items-center">
-                                    <i class="fa-sharp fa-solid fa-arrow-right"></i>
-                                </div>
+            <div class="col-lg-4 col-md-6">
+                <a class="card <?php if ($i == 2) { echo"d-lg-block d-md-none"; } ?>"
+                    href="<?= Url::to(['/card/shares/' . $share->alias]) ?>">
+                    <?php if (!empty($share->title2)) { ?>
+                    <div class="date-action"><?= $share->title2 ?></div>
+                    <?php } ?>
+                    <img class="card-img-top"
+                        src="<?= $share->img ? '/uploads/image/share/' . $share->img : '//placehold.it/876x680' ?>"
+                        alt="...">
+                    <div class="card-body p-0">
+                        <div class="d-flex">
+                            <div class="card-body_wrapper">
+                                <h5 class="card-title"><?= $share->title ?></h5>
+                                <div class="card-text"><?= $share->intro ?></div>
                             </div>
-                        </div> -->
-                    </a>
-                </div>
+                            <div class="btn-arrow d-flex align-items-center">
+                                <i class="fa-sharp fa-solid fa-arrow-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
             <?php $i++; } ?>
         </div>
         <div class="d-flex justify-content-center">

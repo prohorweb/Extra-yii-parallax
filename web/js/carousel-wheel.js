@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
         bootstrapCarousel = new bootstrap.Carousel(carousel, { 
             interval: false, // Disable auto-sliding
-            wrap: true       // Enable wrapping
+            wrap: false       // Disable wrapping
         });
         console.log('✅ Bootstrap carousel initialized');
     } catch (e) {
@@ -47,24 +47,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to check if carousel is 100% visible
     function isCarouselFullyVisible() {
         const carouselRect = carousel.getBoundingClientRect();
-        
-        // Account for negative margin on masthead (125px on desktop)
-        const negativeMargin = window.innerWidth >= 992 ? 125 : 0;
-        
-        // Allow small tolerance for positioning (10px)
         const tolerance = 10;
-        
-        // Check if carousel is mostly visible in viewport (at least 90% visible)
-        const carouselHeight = carouselRect.bottom - carouselRect.top;
-        const visibleHeight = Math.min(carouselRect.bottom, window.innerHeight) - Math.max(carouselRect.top, 0);
-        const visibilityPercentage = (visibleHeight / carouselHeight) * 100;
-        
-        const isVisible = carouselRect.top >= -(negativeMargin + tolerance) && 
-               carouselRect.bottom >= window.innerHeight * 0.1 && // At least 10% of viewport height
-               carouselRect.left >= 0 && 
-               carouselRect.right <= window.innerWidth &&
-               visibilityPercentage >= 90; // At least 90% visible
-        
+        const isVisible = carouselRect.top >= -tolerance &&
+                          carouselRect.bottom <= window.innerHeight + tolerance &&
+                          carouselRect.left >= 0 &&
+                          carouselRect.right <= window.innerWidth;
         console.log('👁️ Carousel visibility check:', {
             top: carouselRect.top,
             bottom: carouselRect.bottom,
@@ -72,16 +59,9 @@ document.addEventListener('DOMContentLoaded', function() {
             right: carouselRect.right,
             windowHeight: window.innerHeight,
             windowWidth: window.innerWidth,
-            negativeMargin: negativeMargin,
             tolerance: tolerance,
-            adjustedTop: carouselRect.top + negativeMargin,
-            minTopAllowed: -(negativeMargin + tolerance),
-            carouselHeight: carouselHeight,
-            visibleHeight: visibleHeight,
-            visibilityPercentage: visibilityPercentage.toFixed(2) + '%',
             isFullyVisible: isVisible
         });
-        
         return isVisible;
     }
 
